@@ -1,0 +1,46 @@
+.rack {
+  background-color: gray;
+  border: 3px solid dimgray;
+  border-radius: 10px;
+  text-align: right;
+  position: relative;
+
+  .synth-container {
+    padding: 10rem 4rem;
+  }
+
+  .branding {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    color: cornflowerblue;
+    text-shadow: 2px 1px magenta;
+  }
+
+  .synth {
+    display: flex;
+    flex-direction: column;
+
+    .settings {
+      flex-direction: row;
+      display: flex;
+
+      .knob {
+        margin: auto;
+        flex-direction: column;
+        text-align: center;
+        display: flex;
+      }
+
+      .selector {
+        margin: auto;
+      }
+    }
+
+    .keyboard {
+      display: inline;
+      margin: 0.5em auto;
+    }
+  }
+}

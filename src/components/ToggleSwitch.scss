@@ -1,0 +1,36 @@
+.toggle-container {
+  margin: 1em;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  .text {
+    font-weight: bold;
+  }
+  :active {
+    .toggle {
+      rotate: 120deg;
+    }
+  }
+}
+
+.toggle-ring {
+  height: 4rem;
+  width: 4rem;
+  background-color: #61dafb;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.toggle {
+  background-color: silver;
+  height: 6rem;
+  width: 2rem;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border: 1px solid black;
+
+  rotate: 30deg;
+  margin-top: 1.2em;
+
+}
