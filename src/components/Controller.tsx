@@ -40,11 +40,17 @@ const Controller = (props: ControllerProps) => {
     const b3 = 246.94;
     const c4 = 261.63;
 
+    let timer: any;
+
     const togglePlay = (note: number) => {
         try {
             props.oscillator.frequency.setValueAtTime(note, props.audioCtx.currentTime); // value in hertz
+            window.clearTimeout(timer);
             props.gainController.gain.setValueAtTime(props.maxGain, props.audioCtx.currentTime);
-            props.gainController.gain.setValueAtTime(0, props.audioCtx.currentTime + 1);
+            timer = setTimeout(
+                () => props.gainController.gain.setValueAtTime(0, props.audioCtx.currentTime),
+                2000
+            );
         }
         catch (err) {
             window.alert("Error:" + err)
@@ -63,7 +69,7 @@ const Controller = (props: ControllerProps) => {
             <PianoKey name="F#3" frequency={fs3} playFunction={togglePlay} sharp/>
             <PianoKey name="G3" frequency={g3} playFunction={togglePlay} />
             <PianoKey name="G#3" frequency={gs3} playFunction={togglePlay} sharp/>
-            <PianoKey name="A3" frequency={a3} playFunction={togglePlay} sharp/>
+            <PianoKey name="A3" frequency={a3} playFunction={togglePlay} />
             <PianoKey name="A#3" frequency={as3} playFunction={togglePlay} sharp/>
             <PianoKey name="B3" frequency={b3} playFunction={togglePlay} />
             <PianoKey name="C4" frequency={c4} playFunction={togglePlay} />
