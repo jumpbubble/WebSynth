@@ -1,3 +1,6 @@
+$site-background-color: #483D8B; // dark slate blue
+$site-background-color-gradient: #FFF5EE; // floral white
+
 .App {
   text-align: center;
 }
@@ -7,14 +10,8 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background: radial-gradient($site-background-color-gradient, $site-background-color 250%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

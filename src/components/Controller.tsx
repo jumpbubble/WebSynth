@@ -78,13 +78,6 @@ const Controller = (props: ControllerProps) => {
                 <PianoKey name="d" frequency={d3*2} playFunction={togglePlay} />
                 <PianoKey name="ds" frequency={ds3*2} playFunction={togglePlay} sharp/>
                 <PianoKey name="e" frequency={e3*2} playFunction={togglePlay} />
-                {/*<PianoKey name="f" frequency={f3*2} playFunction={togglePlay} />*/}
-                {/*<PianoKey name="fs" frequency={fs3*2} playFunction={togglePlay} sharp/>*/}
-                {/*<PianoKey name="g" frequency={g3*2} playFunction={togglePlay} />*/}
-                {/*<PianoKey name="gs" frequency={gs3*2} playFunction={togglePlay} sharp/>*/}
-                {/*<PianoKey name="a" frequency={a3*2} playFunction={togglePlay} />*/}
-                {/*<PianoKey name="as" frequency={as3*2} playFunction={togglePlay} sharp/>*/}
-                {/*<PianoKey name="b" frequency={b3*2} playFunction={togglePlay} />*/}
             </ul>
         </div>
     );

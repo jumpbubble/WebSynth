@@ -1,4 +1,4 @@
-import '../App.css';
+import '../App.scss';
 import Synth from "./Synth";
 import "./Rack.scss";
 
