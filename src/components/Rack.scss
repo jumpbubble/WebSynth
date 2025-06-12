@@ -40,18 +40,16 @@ $synth-detail-color-secondary: #FBB13C	; // goldenrod
       flex-direction: row;
       display: flex;
 
-      * {
-        font-family: monospace;
-        font-size: 1em;
-        color: $synth-detail-color-secondary;
-        text-shadow: 1px 1px $synth-border-color;
-      }
-
       .knob {
         margin: auto;
         flex-direction: column;
         text-align: center;
         display: flex;
+
+        font-family: monospace;
+        font-size: 1em;
+        color: $synth-detail-color-secondary;
+        text-shadow: 1px 1px $synth-border-color;
       }
 
       .selector {
@@ -70,7 +68,7 @@ $synth-detail-color-secondary: #FBB13C	; // goldenrod
 
 // NOTE: computed styles could cause performance issues eventually,
 
-$piano-white: #f0f8ff; // alice blue
+$piano-white: $site-background-color-gradient; // alice blue
 $piano-black: #171717;
 $piano-active: #7B68EE; // medium slate blue
 

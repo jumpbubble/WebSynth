@@ -31,12 +31,15 @@ const Synth = (props: EmitterProps) => {
                                 setVolume(parseInt(e.target.value))
                             }}/>
                         </div>
-                        <select className="selector" onChange={e => setWaveform(e.target.value)}>
-                            <option value="sine">Sine</option>
-                            <option value="triangle">Triangle</option>
-                            <option value="sawtooth">Saw</option>
-                            <option value="square">Square</option>
-                        </select>
+                        <div className="knob">
+                            waveform
+                            <select className="selector" onChange={e => setWaveform(e.target.value)}>
+                                <option value="sine">Sine</option>
+                                <option value="triangle">Triangle</option>
+                                <option value="sawtooth">Saw</option>
+                                <option value="square">Square</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
