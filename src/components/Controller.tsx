@@ -10,10 +10,9 @@ interface PianoKeyProps {
 }
 const PianoKey = (props: PianoKeyProps) => {
     return (
-        <button className={props.sharp ? "black-key" : "white-key"}
+        <li className={"piano-key" + (props.sharp ? " black-key " : " white-key ") + props.name}
                 onClick={() => props.playFunction(props.frequency)}>
-            {props.name}
-        </button>
+        </li>
     )
 }
 
@@ -38,8 +37,9 @@ const Controller = (props: ControllerProps) => {
     const a3 = 220.0;
     const as3 = 233.08;
     const b3 = 246.94;
-    const c4 = 261.63;
 
+    // holds the timeout to be referenced whenever a new note plays
+    // setTimeout is not precise enough for sequencing, but is fine for this use case
     let timer: any;
 
     const togglePlay = (note: number) => {
@@ -57,22 +57,35 @@ const Controller = (props: ControllerProps) => {
         }
     }
 
-
     return (
-        <div className="keyboard">
-            <PianoKey name="C3" frequency={c3} playFunction={togglePlay}/>
-            <PianoKey name="C#3" frequency={cs3} playFunction={togglePlay} sharp/>
-            <PianoKey name="D3" frequency={d3} playFunction={togglePlay} />
-            <PianoKey name="D#3" frequency={ds3} playFunction={togglePlay} sharp/>
-            <PianoKey name="E3" frequency={e3} playFunction={togglePlay} />
-            <PianoKey name="F3" frequency={f3} playFunction={togglePlay} />
-            <PianoKey name="F#3" frequency={fs3} playFunction={togglePlay} sharp/>
-            <PianoKey name="G3" frequency={g3} playFunction={togglePlay} />
-            <PianoKey name="G#3" frequency={gs3} playFunction={togglePlay} sharp/>
-            <PianoKey name="A3" frequency={a3} playFunction={togglePlay} />
-            <PianoKey name="A#3" frequency={as3} playFunction={togglePlay} sharp/>
-            <PianoKey name="B3" frequency={b3} playFunction={togglePlay} />
-            <PianoKey name="C4" frequency={c4} playFunction={togglePlay} />
+        <div className="controller">
+            <ul className="piano-keys">
+                <PianoKey name="c" frequency={c3} playFunction={togglePlay}/>
+                <PianoKey name="cs" frequency={cs3} playFunction={togglePlay} sharp/>
+                <PianoKey name="d" frequency={d3} playFunction={togglePlay} />
+                <PianoKey name="ds" frequency={ds3} playFunction={togglePlay} sharp/>
+                <PianoKey name="e" frequency={e3} playFunction={togglePlay} />
+                <PianoKey name="f" frequency={f3} playFunction={togglePlay} />
+                <PianoKey name="fs" frequency={fs3} playFunction={togglePlay} sharp/>
+                <PianoKey name="g" frequency={g3} playFunction={togglePlay} />
+                <PianoKey name="gs" frequency={gs3} playFunction={togglePlay} sharp/>
+                <PianoKey name="a" frequency={a3} playFunction={togglePlay} />
+                <PianoKey name="as" frequency={as3} playFunction={togglePlay} sharp/>
+
+                <PianoKey name="b" frequency={b3*2} playFunction={togglePlay} />
+                <PianoKey name="c" frequency={c3*2} playFunction={togglePlay}/>
+                <PianoKey name="cs" frequency={cs3*2} playFunction={togglePlay} sharp/>
+                <PianoKey name="d" frequency={d3*2} playFunction={togglePlay} />
+                <PianoKey name="ds" frequency={ds3*2} playFunction={togglePlay} sharp/>
+                <PianoKey name="e" frequency={e3*2} playFunction={togglePlay} />
+                {/*<PianoKey name="f" frequency={f3*2} playFunction={togglePlay} />*/}
+                {/*<PianoKey name="fs" frequency={fs3*2} playFunction={togglePlay} sharp/>*/}
+                {/*<PianoKey name="g" frequency={g3*2} playFunction={togglePlay} />*/}
+                {/*<PianoKey name="gs" frequency={gs3*2} playFunction={togglePlay} sharp/>*/}
+                {/*<PianoKey name="a" frequency={a3*2} playFunction={togglePlay} />*/}
+                {/*<PianoKey name="as" frequency={as3*2} playFunction={togglePlay} sharp/>*/}
+                {/*<PianoKey name="b" frequency={b3*2} playFunction={togglePlay} />*/}
+            </ul>
         </div>
     );
 }

@@ -21,25 +21,27 @@ const Synth = (props: EmitterProps) => {
     }
 
     return (
-        <div className="synth">
-            <div className="settings">
-                <div className="knob">
-                    volume
-                    <input type="range" id="volume" name="volume" min="0" max="100" value={volume} onChange={e => {
-                        setVolume(parseInt(e.target.value))
-                        console.log(volume)
-                    }}/>
+        <>
+            <div className="synth-container">
+                <div className="synth">
+                    <div className="settings">
+                        <div className="knob">
+                            volume
+                            <input type="range" id="volume" name="volume" min="0" max="100" value={volume} onChange={e => {
+                                setVolume(parseInt(e.target.value))
+                            }}/>
+                        </div>
+                        <select className="selector" onChange={e => setWaveform(e.target.value)}>
+                            <option value="sine">Sine</option>
+                            <option value="triangle">Triangle</option>
+                            <option value="sawtooth">Saw</option>
+                            <option value="square">Square</option>
+                        </select>
+                    </div>
                 </div>
-                <select className="selector" onChange={e => setWaveform(e.target.value)}>
-                    <option value="sine">Sine</option>
-                    <option value="triangle">Triangle</option>
-                    <option value="sawtooth">Saw</option>
-                    <option value="square">Square</option>
-                </select>
             </div>
-
             <Controller oscillator={osc1} audioCtx={props.audioCtx} gainController={gain1} maxGain={volume/100}/>
-        </div>
+        </>
     );
 }
 

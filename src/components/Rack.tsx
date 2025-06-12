@@ -23,9 +23,7 @@ const Rack = () => {
             <span className="branding">
                 WebSynth
             </span>
-            <div className="synth-container">
-                <Synth audioCtx={audioCtx} />
-            </div>
+            <Synth audioCtx={audioCtx} />
         </div>
     );
 }
