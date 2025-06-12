@@ -38,6 +38,68 @@ const Controller = (props: ControllerProps) => {
     const as3 = 233.08;
     const b3 = 246.94;
 
+    window.addEventListener("keydown", (event) => typeNote(event))
+
+    // TODO: fix keyboard input ignoring volume and waveform
+    const typeNote = (key: any) => {
+        console.log(key);
+        switch (key.code) {
+            case "KeyA":
+                togglePlay(c3);
+                break;
+            case "KeyW":
+                togglePlay(cs3);
+                break;
+            case "KeyS":
+                togglePlay(d3);
+                break;
+            case "KeyE":
+                togglePlay(ds3);
+                break;
+            case "KeyD":
+                togglePlay(e3);
+                break;
+            case "KeyF":
+                togglePlay(f3);
+                break;
+            case "KeyT":
+                togglePlay(fs3);
+                break;
+            case "KeyG":
+                togglePlay(g3);
+                break;
+            case "KeyY":
+                togglePlay(gs3);
+                break;
+            case "KeyH":
+                togglePlay(a3);
+                break;
+            case "KeyU":
+                togglePlay(as3);
+                break;
+            case "KeyJ":
+                togglePlay(b3);
+                break;
+
+            case "KeyK":
+                togglePlay(2*c3);
+                break;
+            case "KeyO":
+                togglePlay(2*cs3);
+                break;
+            case "KeyL":
+                togglePlay(2*d3);
+                break;
+            case "KeyP":
+                togglePlay(2*ds3);
+                break;
+            case "Semicolon":
+                togglePlay(2*e3);
+                break;
+        }
+
+    }
+
     // holds the timeout to be referenced whenever a new note plays
     // setTimeout is not precise enough for sequencing, but is fine for this use case
     let timer: any;
