@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/websynth/static/css/main.ba729096.css",
-    "main.js": "/websynth/static/js/main.99899a2d.js",
-    "static/js/453.92c12d16.chunk.js": "/websynth/static/js/453.92c12d16.chunk.js",
-    "index.html": "/websynth/index.html",
-    "main.ba729096.css.map": "/websynth/static/css/main.ba729096.css.map",
-    "main.99899a2d.js.map": "/websynth/static/js/main.99899a2d.js.map",
-    "453.92c12d16.chunk.js.map": "/websynth/static/js/453.92c12d16.chunk.js.map"
+    "main.css": "/WebSynth/static/css/main.ba729096.css",
+    "main.js": "/WebSynth/static/js/main.67e7aca4.js",
+    "static/js/453.92c12d16.chunk.js": "/WebSynth/static/js/453.92c12d16.chunk.js",
+    "index.html": "/WebSynth/index.html",
+    "main.ba729096.css.map": "/WebSynth/static/css/main.ba729096.css.map",
+    "main.67e7aca4.js.map": "/WebSynth/static/js/main.67e7aca4.js.map",
+    "453.92c12d16.chunk.js.map": "/WebSynth/static/js/453.92c12d16.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba729096.css",
-    "static/js/main.99899a2d.js"
+    "static/js/main.67e7aca4.js"
   ]
 }
