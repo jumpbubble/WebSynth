@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/websynth-gh-pages/static/css/main.ba729096.css",
-    "main.js": "/websynth-gh-pages/static/js/main.f913259f.js",
-    "static/js/453.92c12d16.chunk.js": "/websynth-gh-pages/static/js/453.92c12d16.chunk.js",
-    "index.html": "/websynth-gh-pages/index.html",
-    "main.ba729096.css.map": "/websynth-gh-pages/static/css/main.ba729096.css.map",
-    "main.f913259f.js.map": "/websynth-gh-pages/static/js/main.f913259f.js.map",
-    "453.92c12d16.chunk.js.map": "/websynth-gh-pages/static/js/453.92c12d16.chunk.js.map"
+    "main.css": "/websynth/static/css/main.ba729096.css",
+    "main.js": "/websynth/static/js/main.99899a2d.js",
+    "static/js/453.92c12d16.chunk.js": "/websynth/static/js/453.92c12d16.chunk.js",
+    "index.html": "/websynth/index.html",
+    "main.ba729096.css.map": "/websynth/static/css/main.ba729096.css.map",
+    "main.99899a2d.js.map": "/websynth/static/js/main.99899a2d.js.map",
+    "453.92c12d16.chunk.js.map": "/websynth/static/js/453.92c12d16.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba729096.css",
-    "static/js/main.f913259f.js"
+    "static/js/main.99899a2d.js"
   ]
 }
