@@ -9,17 +9,24 @@ interface EmitterProps {
 // This component represents any number of oscillators controlled by one controller.
 // This does need to be a separate component from Rack unless the scope of this project grows significantly, consider refactoring
 const Synth = (props: EmitterProps) => {
-    const osc1 = props.audioCtx.createOscillator();
-    const gain1 = props.audioCtx.createGain();
+    const oscA = props.audioCtx.createOscillator();
+    const oscB = props.audioCtx.createOscillator();
+    const gainA = props.audioCtx.createGain(); // master volume
+    const gainB = props.audioCtx.createGain();
 
-    osc1.connect(gain1);
-    gain1.connect(props.audioCtx.destination);
-    gain1.gain.setValueAtTime(0, props.audioCtx.currentTime);
-    osc1.start();
+    oscA.connect(gainA);
+    oscB.connect(gainB);
+    gainB.connect(gainA); // connect oscillator B volume to master volume
+    gainA.connect(props.audioCtx.destination);
+    gainA.gain.setValueAtTime(0, props.audioCtx.currentTime);
+    oscA.start();
+    oscB.start();
 
     const [volume, setVolume] = useState(100);
+    const [volumeB, setVolumeB] = useState(0);
     let waveformNumber = 1;
-    const setWaveform = (waveform: number) => {
+    let waveformNumberB = 1;
+    const setWaveform = (waveform: number, osc: any) => {
         console.log(waveform, typeof waveform)
         let waveName = "sine";
         waveformNumber = waveform;
@@ -37,8 +44,10 @@ const Synth = (props: EmitterProps) => {
                 waveName = "sawtooth";
                 break;
         }
-        osc1.type = waveName;
+        osc.type = waveName;
     }
+    const setWaveformA = (waveform: number) => {setWaveform(waveform, oscA)};
+    const setWaveformB = (waveform: number) => {setWaveform(waveform, oscB)};
 
     return (
         <>
@@ -46,11 +55,19 @@ const Synth = (props: EmitterProps) => {
                 <div className="synth">
                     <div className="settings">
                         <Slider id="volume" min={0} max={100} default={volume} setter={setVolume}/>
-                        <Slider default={1} setter={setWaveform} max={4} min={1} id="waveform" waveform={true}/>
+                        <Slider default={1} setter={setWaveformA} max={4} min={1} id="waveform" name="waveformA"/>
+                        <Slider default={1} setter={setWaveformB} max={4} min={1} id="waveform" name="waveformB"/>
                     </div>
                 </div>
             </div>
-            <Controller oscillator={osc1} audioCtx={props.audioCtx} gainController={gain1} maxGain={volume/100}/>
+            <Controller oscillator={oscA}
+                        oscillatorB={oscB}
+                        audioCtx={props.audioCtx}
+                        gainMaster={gainA}
+                        gainB={gainB}
+                        maxGainB={volume/100}
+                        enableB
+                        maxGain={volume/100}/>
         </>
     );
 }

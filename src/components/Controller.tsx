@@ -20,8 +20,13 @@ const PianoKey = (props: PianoKeyProps) => {
 interface ControllerProps {
     oscillator: any
     audioCtx: any
-    gainController: any
+    gainMaster: any
     maxGain: number
+    oscillatorB: any
+    gainB?: any
+    maxGainB?: number
+    enableB?: boolean
+    multiB?: number
 }
 const Controller = (props: ControllerProps) => {
     // note frequency values
@@ -46,9 +51,17 @@ const Controller = (props: ControllerProps) => {
         try {
             props.oscillator.frequency.setValueAtTime(note, props.audioCtx.currentTime); // value in hertz
             window.clearTimeout(timer);
-            props.gainController.gain.setValueAtTime(props.maxGain, props.audioCtx.currentTime);
+            props.gainMaster.gain.setValueAtTime(props.maxGain, props.audioCtx.currentTime);
+            if (props.oscillatorB && props.gainB && props.maxGainB && props.enableB) {
+                let mult = props.multiB || 1;
+                props.oscillatorB.frequency.setValueAtTime(note * mult, props.audioCtx.currentTime); // value in hertz
+                props.gainB.gain.setValueAtTime(props.maxGainB, props.audioCtx.currentTime);
+            }
+            if (props.gainB && !props.enableB) {
+                props.gainB.gain.setValueAtTime(0, props.audioCtx.currentTime);
+            }
             timer = setTimeout(
-                () => props.gainController.gain.setValueAtTime(0, props.audioCtx.currentTime),
+                () => props.gainMaster.gain.setValueAtTime(0, props.audioCtx.currentTime),
                 2000
             );
         }
