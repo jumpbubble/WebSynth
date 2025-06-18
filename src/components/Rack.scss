@@ -2,8 +2,9 @@ $site-background-color: #512888; // dark slate blue
 $site-background-color-gradient: #D4D2D5; // floral white
 $synth-background-color: #512888; // dark slate blue
 $synth-border-color: #32174D; // indigo
-$synth-border-color-trans: #4B008288; // indigo transparent
+$synth-border-color-trans: #32174D88; // indigo transparent
 $synth-detail-color-primary: #EA1F48; // crimson
+$synth-detail-color-primary-trans: #EA1F4844; // crimson transparent
 $synth-detail-color-secondary: #FBB13C	; // goldenrod
 
 .rack {
@@ -40,20 +41,6 @@ $synth-detail-color-secondary: #FBB13C	; // goldenrod
       flex-direction: row;
       display: flex;
 
-      * {
-        font-family: monospace;
-        font-size: 1em;
-        color: $synth-detail-color-secondary;
-        text-shadow: 1px 1px $synth-border-color;
-      }
-
-      .knob {
-        margin: auto;
-        flex-direction: column;
-        text-align: center;
-        display: flex;
-      }
-
       .selector {
         margin: auto;
       }
@@ -70,7 +57,7 @@ $synth-detail-color-secondary: #FBB13C	; // goldenrod
 
 // NOTE: computed styles could cause performance issues eventually,
 
-$piano-white: #f0f8ff; // alice blue
+$piano-white: $site-background-color-gradient; // alice blue
 $piano-black: #171717;
 $piano-active: #7B68EE; // medium slate blue
 
@@ -129,4 +116,75 @@ $key-height: 12rem;
     margin-left: calc(-0.5 * $key-width * $black-key-ratio);
   }
 
+}
+
+// Slider
+$vertical-slider-width: 8rem;
+$vertical-slider-height: 2rem;
+
+.knob {
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+
+  font-family: monospace;
+  color: $synth-detail-color-secondary;
+  text-shadow: 1px 1px $synth-border-color;
+
+  label {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.slider-super-container {
+  height: $vertical-slider-width;
+  // fixme this should be controlled by the variables
+  width: $vertical-slider-height;
+  margin: auto;
+}
+
+.slider-container {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: $vertical-slider-width;
+  height: 100%;
+  transform:  rotate(270deg) translate(-33%, -150%);
+
+  background: $site-background-color-gradient;
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: $vertical-slider-height;
+  height: $vertical-slider-height;
+  background: $synth-detail-color-primary;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: $vertical-slider-height;
+  height: $vertical-slider-height;
+  background: $synth-detail-color-primary;
+  cursor: pointer;
+}
+
+#waveform::-webkit-slider-thumb {
+  background-color: $synth-detail-color-primary-trans;
+  border: 4px solid $synth-detail-color-primary;
+}
+#waveform {
+  background-image: url("../../public/waveformselector.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }

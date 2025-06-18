@@ -71,8 +71,8 @@ const Controller = (props: ControllerProps) => {
                 <PianoKey name="gs" frequency={gs3} playFunction={togglePlay} sharp/>
                 <PianoKey name="a" frequency={a3} playFunction={togglePlay} />
                 <PianoKey name="as" frequency={as3} playFunction={togglePlay} sharp/>
+                <PianoKey name="b" frequency={b3} playFunction={togglePlay} />
 
-                <PianoKey name="b" frequency={b3*2} playFunction={togglePlay} />
                 <PianoKey name="c" frequency={c3*2} playFunction={togglePlay}/>
                 <PianoKey name="cs" frequency={cs3*2} playFunction={togglePlay} sharp/>
                 <PianoKey name="d" frequency={d3*2} playFunction={togglePlay} />
