@@ -84,7 +84,7 @@ $key-height: 12rem;
     background-color: $piano-active;
   }
 
-  li {
+  input {
     margin:0;
     padding:0;
     list-style:none;
@@ -92,11 +92,16 @@ $key-height: 12rem;
     float: left;
   }
 
+  input:focus{
+    outline: none;
+  }
+
   .black-key {
     background-color: $piano-black;
     height: calc($key-height * $black-key-ratio);
     width: calc($key-width * $black-key-ratio);
     z-index: 2;
+    border: none;
     border-radius: 0 0 5% 5%;
   }
 

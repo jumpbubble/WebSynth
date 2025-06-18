@@ -18,11 +18,12 @@ const Synth = (props: EmitterProps) => {
     osc1.start();
 
     const [volume, setVolume] = useState(100);
+
     let waveformNumber = 1;
     const setWaveform = (waveform: number) => {
         console.log(waveform, typeof waveform)
         let waveName = "sine";
-        waveformNumber = waveform;
+        // waveformNumber = waveform;
         switch (waveform) {
             case 1:
                 waveName = "sine";
