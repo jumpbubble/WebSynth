@@ -87,7 +87,12 @@ const Controller = (props: ControllerProps) => {
             }
             let keyElement = document.getElementById(`key-${note}Hz`);
             if (keyElement) {
-                keyElement.style.backgroundColor = "#D4D2D5"; // default bg color todo change if styles change
+                if (keyElement.className.includes("black-key")){
+                    keyElement.style.backgroundColor = "#171717"; // default black color todo change if styles change
+                }
+                else {
+                    keyElement.style.backgroundColor = "#D4D2D5"; // default white color todo change if styles change
+                }
             }
         }
     }
